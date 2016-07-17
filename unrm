@@ -1,0 +1,25 @@
+#!/bin/bash
+
+for filename
+do
+
+if [ -f $TRASH_CAN/$filename ] || [ -d $TRASH_CAN/$filename ];then
+
+mv -v $TRASH_CAN/$filename .
+
+else 
+    echo "file not found in trash"
+fi
+
+done
+
+# name=`ls -a $TRASH_CAN | grep -w $filename`
+
+# grep -w $filename $TRASH_CAN/.trashfiles | xargs rm $TRASH_CAN/$filename
+
+# elif [ -d `ls $TRASH_CAN | grep -w $filename` ]; then
+
+# grep -w $filename $TRASH_CAN/.trashfiles | xargs rm -r $TRASH_CAN/$filename
+
+
+

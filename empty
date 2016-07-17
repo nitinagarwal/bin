@@ -1,0 +1,12 @@
+#!/bin/bash
+# EMPTY the trash folder. 
+
+
+var=`du -sh $TRASH_CAN | awk '{print$1}'`
+
+rm -rf $TRASH_CAN/*
+
+# ls -a $TRASH_CAN | xargs rm -r $TRASH_CAN/ 
+
+echo "Successfully emptyed trash $var"
+

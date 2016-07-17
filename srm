@@ -1,0 +1,32 @@
+#!/bin/bash
+# moves files/directories to trash
+#have to specify the location of TRASH_CAN envp
+
+oldIFS=$IFS
+pathname=`pwd`
+IFS=''  # to ensure filenames with spaces are read properly
+
+for filename in "$@"
+do
+
+# if [ -f $filename ]; then # || [ -d $filename ]; then
+
+fullpath="$pathname/$filename"
+# echo $fullpath>>"$TRASH_CAN/.trashfiles"
+
+mv -v $fullpath $TRASH_CAN 
+
+# else 
+# echo "$filename is not a regular file & neither a directory"
+# fi
+
+done
+
+IFS=$oldIFS unset oldIFS # resetting back IFS
+
+# elif [ -d $filename ]; then
+
+# fullpath="$pathname/$filename"
+# # echo $fullpath>>"$TRASH_CAN/.trashfiles"
+
+# mv $fullpath $TRASH_CAN
