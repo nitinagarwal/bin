@@ -1,8 +1,8 @@
-lfpsplitter
-meshclean
-fssrecon
-dmrecon
-sfmrecon
-makescene
-scene2pst
+./lfpsplitter
+./meshclean
+./fssrecon
+./dmrecon
+./sfmrecon
+./makescene
+./scene2pst
 
