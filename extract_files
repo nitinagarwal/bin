@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Reads all zip files and extracts them to their dedicated folder. 
+# When extractions it deletes the zip file.
+
+pathname=`pwd`
+
+filecount=0
+T_filecount=`ls | wc -l | sed -e 's/^[ \t]*//'`  #removing space from word count
+
+for filename in *.zip
+do
+   
+    fullpath="$pathname/$filename"
+    
+    if [[ -f $fullpath ]]; then
+   
+        name=`basename "$filename" .zip`
+        unzip "$fullpath" -d "$name" > /dev/null
+        ((filecount++)) # fileid=$[$fileid+1]
+        srm "$filename" > /dev/null
+    else 
+        echo "$filename is not a file"
+    fi
+
+done
+
+echo "${filecount}/${T_filecount} files were processed"
