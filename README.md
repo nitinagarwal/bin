@@ -1,2 +1,2 @@
 # bin
-bin files
+Some useful script files 
